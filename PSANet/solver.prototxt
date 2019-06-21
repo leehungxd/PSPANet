@@ -1,0 +1,31 @@
+train_net: "/home/lihang/projects/PSPNet/PSANet/psanet50_train.prototxt"
+test_net: "/home/lihang/projects/PSPNet/PSANet/psanet50_test.prototxt"
+test_iter: 100
+test_interval: 595
+base_lr: 1e-4
+display: 100
+max_iter: 150000
+# lr_policy: "multistep"
+lr_policy: "poly"
+power: 0.9
+# 实际运行中直接将学习率设为论文中的0.01并且不采用初始化模型时会导致loss爆炸，使用下面的学习率并使用作者训好的模型来finetune时loss正常
+
+gamma: 0.10000000149
+momentum: 0.899999976158
+weight_decay: 0.000100000023749
+snapshot: 2380
+snapshot_prefix: "/home/lihang/projects/PSPNet/PSANet/psanet50_cityscape"
+solver_mode: GPU
+device_id: 0
+debug_info: false
+snapshot_after_train: true
+test_initialization: false
+average_loss: 100
+# stepvalue: 10000
+stepvalue: 100000
+# stepvalue: 200000
+iter_size: 5
+type: "SGD"
+# eval_type: "detection"
+# ap_version: "11point"
+
